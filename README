@@ -9,16 +9,16 @@ Common errors behaviors can be defined in the error package and re-used througho
 
 Running main.go yields the following output
 ```
-basic is not found error: true
+"basic" is not found error: true
 not found: couldn't find foo in place
 
-thinlyWrapped is not found error: true
+"thinlyWrapped" is not found error: true
 not found: some database error saying not found
 
-deeplyWrapped is not found error: true
-not found: outermost context middle context inner context some database error saying not found
+"deeplyWrapped" is not found error: true
+not found: outermost context: middle context: inner context: some database error saying not found
 
-basic is not found error: false
+"otherKindOfError" is not found error: false
 some other error
 ```
 
