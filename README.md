@@ -22,3 +22,19 @@ not found: outermost context: middle context: inner context: some database error
 some other error
 ```
 
+An example of what a controller handling errors could look like is
+```
+func (c *Controller) someControllerFunction() {
+    err := c.service.DoSomething()
+    
+    switch {
+    case errors.IsNotFound(err):
+        //return 404
+    case errors.IsInvalidRequest(err):
+        //return 400
+    case err != nil:
+        //return 500
+    }
+}
+```
+

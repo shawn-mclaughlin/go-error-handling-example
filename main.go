@@ -37,24 +37,3 @@ func main() {
 	fmt.Println(someOtherError.Error())
 	fmt.Println()
 }
-
-func exampleControllerErrorHandling() {
-	err := errors.WrapAsNotFoundError(
-		fmt.Errorf("outermost context: %w",
-			fmt.Errorf("middle context: %w",
-				fmt.Errorf("inner context: %w",
-					goerrors.New("some database error saying not found"),
-				),
-			),
-		),
-	)
-
-	switch {
-	case errors.IsNotFound(err):
-		//return 404
-	case errors.IsInvalidRequest(err):
-		//return 400
-	case err != nil:
-		//return 500
-	}
-}
